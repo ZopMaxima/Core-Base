@@ -12,6 +12,30 @@ using UnityEngine;
 public static class VectorUtil
 {
 	/// <summary>
+	/// Returns the squared distance between these points.
+	/// </summary>
+	public static float DistanceSqr(this Vector2 self, Vector2 other)
+	{
+		return (other - self).sqrMagnitude;
+	}
+
+	/// <summary>
+	/// Returns the squared distance between these points.
+	/// </summary>
+	public static float DistanceSqr(this Vector3 self, Vector3 other)
+	{
+		return (other - self).sqrMagnitude;
+	}
+
+	/// <summary>
+	/// Returns the squared distance between these points.
+	/// </summary>
+	public static float DistanceSqr(this Vector4 self, Vector4 other)
+	{
+		return (other - self).sqrMagnitude;
+	}
+
+	/// <summary>
 	/// Returns the first intersection point with this circle.
 	/// https://stackoverflow.com/questions/23016676/line-segment-and-circle-intersection
 	/// </summary>
