@@ -21,4 +21,54 @@ public static class GameObjectUtil
 			instance.SetActive(activate);
 		}
 	}
+
+	/// <summary>
+	/// Instantiate an inactive instance.
+	/// </summary>
+	public static GameObject InstantiateInactive(GameObject prefab)
+	{
+		return InstantiateInactive(prefab, null);
+	}
+
+	/// <summary>
+	/// Instantiate an inactive instance.
+	/// </summary>
+	public static GameObject InstantiateInactive(GameObject prefab, Transform parent)
+	{
+		return InstantiateInactive(prefab, prefab.transform.position, prefab.transform.rotation, parent);
+	}
+
+	/// <summary>
+	/// Instantiate an inactive instance.
+	/// </summary>
+	public static GameObject InstantiateInactive(GameObject prefab, Vector3 position, Quaternion rotation)
+	{
+		return InstantiateInactive(prefab, position, rotation, null);
+	}
+
+	/// <summary>
+	/// Instantiate an inactive instance.
+	/// </summary>
+	public static GameObject InstantiateInactive(GameObject prefab, Vector3 position, Quaternion rotation, Transform parent)
+	{
+		if (prefab == null)
+		{
+			return null;
+		}
+
+		// Deactivate while instantiating.
+		bool wasActive = prefab.activeSelf;
+		if (wasActive)
+		{
+			prefab.SetActive(false);
+		}
+		GameObject instance = GameObject.Instantiate(prefab, position, rotation, parent);
+		if (wasActive)
+		{
+			prefab.SetActive(true);
+		}
+
+		// Return
+		return instance;
+	}
 }
