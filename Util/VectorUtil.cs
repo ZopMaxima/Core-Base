@@ -36,6 +36,30 @@ public static class VectorUtil
 	}
 
 	/// <summary>
+	/// Returns true if the given vectors are approximately a match.
+	/// </summary>
+	public static bool Approximately(this Vector2 self, Vector2 other)
+	{
+		return Mathf.Approximately(self.x, other.x) && Mathf.Approximately(self.y, other.y);
+	}
+
+	/// <summary>
+	/// Returns true if the given vectors are approximately a match.
+	/// </summary>
+	public static bool Approximately(this Vector3 self, Vector3 other)
+	{
+		return Mathf.Approximately(self.x, other.x) && Mathf.Approximately(self.y, other.y) && Mathf.Approximately(self.z, other.z);
+	}
+
+	/// <summary>
+	/// Returns true if the given vectors are approximately a match.
+	/// </summary>
+	public static bool Approximately(this Vector4 self, Vector4 other)
+	{
+		return Mathf.Approximately(self.x, other.x) && Mathf.Approximately(self.y, other.y) && Mathf.Approximately(self.z, other.z) && Mathf.Approximately(self.w, other.w);
+	}
+
+	/// <summary>
 	/// Returns the first intersection point with this circle.
 	/// https://stackoverflow.com/questions/23016676/line-segment-and-circle-intersection
 	/// </summary>
