@@ -75,6 +75,17 @@ public static class GameObjectUtil
 	/// <summary>
 	/// Returns the nearest component of matching type.
 	/// </summary>
+	public static void FindComponentToRoot<T>(this Component instance, ref T component) where T : Component
+	{
+		if (instance != null)
+		{
+			FindComponentToRoot(instance.gameObject, ref component);
+		}
+	}
+
+	/// <summary>
+	/// Returns the nearest component of matching type.
+	/// </summary>
 	public static void FindComponentToRoot<T>(this GameObject instance, ref T component) where T : Component
 	{
 		if (component == null)
